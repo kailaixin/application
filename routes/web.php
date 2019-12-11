@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('good')->group(function(){
+    Route::post('save','admin\GoodController@save');
+    Route::post('list','admin\GoodController@list');
+});
