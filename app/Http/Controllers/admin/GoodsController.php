@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\application\Good;
 
-class GoodController extends Controller
+class GoodsController extends Controller
 {
     public function save(Request $request)
     {
@@ -17,5 +17,11 @@ class GoodController extends Controller
         }else{
             echo json_encode(['font'=>'请求超时','code'=>2]);
         }
+    }
+
+    public function list()
+    {
+        $data = Good::get()->toArray();
+        echo json_encode($data);
     }
 }
