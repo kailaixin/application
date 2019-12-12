@@ -67,7 +67,7 @@
         $('.button').click(function(){
             var data = $('#form').serialize();
             $.post(
-                'login_do',
+                '/login_do',
                 data,
                 function(res){
                     layer.msg(res.font,{icon:res.code,time:1500},function(){
@@ -85,7 +85,7 @@
         $('.register').click(function(){
             var msg = confirm('注册后需申请才能正常使用，确定注册吗？');
             if (msg == true) {
-                location.href='register';
+                location.href='/register';
             }
         });
     });

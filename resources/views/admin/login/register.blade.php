@@ -71,7 +71,7 @@
                 data,
                 function(res){
                     layer.msg(res.font,{icon:res.code,time:1500},function(){
-                        location.href='login';
+                        location.href='/';
                     });
                 },
                 'json'
@@ -81,7 +81,7 @@
 
         // 注册跳转登陆页面
         $('.login').click(function(){
-            location.href='login';
+            location.href='/';
         });
     });
 </script>

@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::prefix('good')->group(function(){
     Route::post('save','admin\GoodController@save');
@@ -21,7 +19,7 @@ Route::prefix('good')->group(function(){
 });
 
 /****************************  后台管理  *******************************************************************************/
-Route::get('admin/index','admin\IndexController@index');                      // 后台主页
+Route::get('admin/index','admin\IndexController@index');                // 后台主页
 
 Route::prefix('admin')->group(function(){
     Route::get('user/list','admin\UserController@list');                // 个人信息展示视图
@@ -29,13 +27,13 @@ Route::prefix('admin')->group(function(){
     Route::post('headimg_do','admin\UserController@headimg_do');        // 更改个人信息头像处理
 });
 
-Route::prefix('admin')->group(function(){
+
+    Route::get('/','admin\LoginController@login');                      // 后台登陆视图
+    Route::post('login_do','admin\LoginController@login_do');           // 后台登陆处理
     Route::get('register','admin\LoginController@register');            // 后台注册视图
     Route::post('register_do','admin\LoginController@register_do');     // 后台注册处理
-    Route::get('login','admin\LoginController@login');                  // 后台登陆视图
-    Route::post('login_do','admin\LoginController@login_do');           // 后台登陆处理
     Route::post('out','admin\LoginController@out');                     // 后台退出处理
-});
+
 
 Route::prefix('admin/advent')->group(function(){
     Route::get('create','admin\CategoryController@create');             // 广告添加视图
