@@ -21,6 +21,10 @@ Route::prefix('good')->group(function(){
 /****************************  后台管理  *******************************************************************************/
 Route::get('admin/index','admin\IndexController@index');                // 后台主页
 Route::get('admin/index','admin\IndexController@index');                // 后台主页
+Route::get('admin/index','admin\IndexController@index');                      // 后台主页
+Route::get('admin/user/list','admin\UserController@list');
+Route::get('admin/user/edit','admin\UserController@edit');
+Route::post('update','admin\UserController@update');                   
 
 Route::prefix('admin')->group(function(){
     Route::get('user/list','admin\UserController@list');                // 个人信息展示视图
