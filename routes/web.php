@@ -19,11 +19,8 @@ Route::prefix('good')->group(function(){
 });
 
 /****************************  后台管理  *******************************************************************************/
-<<<<<<< HEAD
-Route::get('admin/index','admin\IndexController@index');                      // 后台主页
-=======
 Route::get('admin/index','admin\IndexController@index');                // 后台主页
->>>>>>> 65bd2a36626505745e82b467220d1b7284368e39
+Route::get('admin/index','admin\IndexController@index');                // 后台主页
 
 Route::prefix('admin')->group(function(){
     Route::get('user/list','admin\UserController@list');                // 个人信息展示视图
@@ -31,7 +28,6 @@ Route::prefix('admin')->group(function(){
     Route::post('headimg_do','admin\UserController@headimg_do');        // 更改个人信息头像处理
 });
 
-<<<<<<< HEAD
 Route::prefix('admin')->group(function(){
     Route::get('register','admin\LoginController@register');            // 后台注册视图
     Route::post('register_do','admin\LoginController@register_do');     // 后台注册处理
@@ -39,7 +35,6 @@ Route::prefix('admin')->group(function(){
     Route::post('login_do','admin\LoginController@login_do');           // 后台登陆处理
     Route::post('out','admin\LoginController@out');                     // 后台退出处理
 });
-=======
 
     Route::get('/','admin\LoginController@login');                      // 后台登陆视图
     Route::post('login_do','admin\LoginController@login_do');           // 后台登陆处理
@@ -47,7 +42,6 @@ Route::prefix('admin')->group(function(){
     Route::post('register_do','admin\LoginController@register_do');     // 后台注册处理
     Route::post('out','admin\LoginController@out');                     // 后台退出处理
 
->>>>>>> 65bd2a36626505745e82b467220d1b7284368e39
 
 Route::prefix('admin/advent')->group(function(){
     Route::get('create','admin\CategoryController@create');             // 广告添加视图
@@ -119,11 +113,8 @@ Route::prefix('admin/rbac')->group(function(){
     Route::get('gra_create','admin\RbacController@gra_create');          // 用户角色添加视图
     Route::post('gra_save','admin\RbacController@gra_save');             // 用户角色添加处理
     Route::get('gra_list','admin\RbacController@gra_list');              // 用户角色列表视图
-<<<<<<< HEAD
     Route::get('gra_delete/{id}','admin\RbacController@gra_delete');         // 用户角色删除处理
-=======
     Route::post('gra_delete','admin\RbacController@gra_delete');         // 用户角色删除处理
->>>>>>> 65bd2a36626505745e82b467220d1b7284368e39
     Route::get('gra_edit/{id}','admin\RbacController@gra_edit');         // 用户角色修改视图
     Route::post('gra_update','admin\RbacController@gra_update');         // 用户角色修改处理
 });

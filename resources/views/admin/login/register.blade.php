@@ -71,11 +71,8 @@
                 data,
                 function(res){
                     layer.msg(res.font,{icon:res.code,time:1500},function(){
-<<<<<<< HEAD
                         location.href='login';
-=======
                         location.href='/';
->>>>>>> 65bd2a36626505745e82b467220d1b7284368e39
                     });
                 },
                 'json'
@@ -85,11 +82,8 @@
 
         // 注册跳转登陆页面
         $('.login').click(function(){
-<<<<<<< HEAD
             location.href='login';
-=======
             location.href='/';
->>>>>>> 65bd2a36626505745e82b467220d1b7284368e39
         });
     });
 </script>

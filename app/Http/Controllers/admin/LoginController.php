@@ -4,12 +4,6 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-<<<<<<< HEAD
-
-class LoginController extends Controller
-{
-    //
-=======
 use App\admin\User;
 
 class LoginController extends Controller
@@ -63,5 +57,4 @@ class LoginController extends Controller
             echo json_encode(['font'=>'请求超时，稍后再试','code'=>2]);
         }
     }
->>>>>>> 65bd2a36626505745e82b467220d1b7284368e39
 }
