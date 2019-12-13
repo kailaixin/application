@@ -67,7 +67,11 @@
         $('.button').click(function(){
             var data = $('#form').serialize();
             $.post(
+<<<<<<< HEAD
                 'login_do',
+=======
+                '/login_do',
+>>>>>>> 65bd2a36626505745e82b467220d1b7284368e39
                 data,
                 function(res){
                     layer.msg(res.font,{icon:res.code,time:1500},function(){
@@ -85,7 +89,11 @@
         $('.register').click(function(){
             var msg = confirm('注册后需申请才能正常使用，确定注册吗？');
             if (msg == true) {
+<<<<<<< HEAD
                 location.href='register';
+=======
+                location.href='/register';
+>>>>>>> 65bd2a36626505745e82b467220d1b7284368e39
             }
         });
     });

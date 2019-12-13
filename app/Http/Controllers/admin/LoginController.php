@@ -4,8 +4,64 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
 
 class LoginController extends Controller
 {
     //
+=======
+use App\admin\User;
+
+class LoginController extends Controller
+{
+    public function login()
+    {
+        return view('admin.login.login');
+    }
+
+    public function login_do(Request $request)
+    {
+        $arr = $request->all();
+        $arr['pwd'] = md5($arr['pwd']);
+        $result = User::where(['email'=>$arr['email'],'pwd'=>$arr['pwd']])->get()->toArray();
+        if (empty($result)) {
+            echo json_encode(['font'=>'用户名或密码有误','code'=>2]);die;
+        }
+        $data = [
+            'u_id' => $result[0]['u_id'],
+            'nick' => $result[0]['nick'],
+            'email' => $result[0]['email'],
+            'headimg' => $result[0]['headimg']
+        ];
+        $request->session()->put('userinfo',$data);
+        $res = $request->session()->get('userinfo');
+        if ($res) {
+            echo json_encode(['font'=>'登陆成功','code'=>1]);
+        }else{
+            echo json_encode(['font'=>'请求超时，稍后再试','code'=>2]);
+        }
+    }
+
+    public function register()
+    {
+        return view('admin.login.register');
+    }
+
+    public function register_do(Request $request)
+    {
+        $arr = $request->all();
+        $arr['pwd'] = md5($arr['pwd']);
+        $result = User::where('email',$arr['email'])->get()->toArray();
+        $arr['create_time'] = time();
+        if (!empty($result)) {
+            echo json_encode(['font'=>'邮箱已存在','code'=>2]);die;
+        }
+        $res = User::insertGetId($arr);
+        if ($res == true) {
+            echo json_encode(['font'=>'注册成功','code'=>1]);
+        }else{
+            echo json_encode(['font'=>'请求超时，稍后再试','code'=>2]);
+        }
+    }
+>>>>>>> 65bd2a36626505745e82b467220d1b7284368e39
 }
