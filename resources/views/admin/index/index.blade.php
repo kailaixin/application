@@ -13,7 +13,7 @@
         #h2{
             color: #4169e1;
             font-size: 30px;
-            line-height: 250px;
+            line-height: 240px;
         }
     </style>
     <form id="form">

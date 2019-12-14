@@ -17,8 +17,8 @@
         <div class="layui-form-item">
             <label class="layui-form-label">是否展示</label>
             <div class="layui-input-block">
-                <input type="radio" name="sex" value="1" title="是">
-                <input type="radio" name="sex" value="2" title="否" checked>
+                <input type="radio" name="is_show" value="1" title="是">
+                <input type="radio" name="is_show" value="2" title="否" checked>
             </div>
         </div>
         <div class="layui-form-item">
@@ -37,8 +37,19 @@
 
             //监听提交
             $('.formDemo').click(function(){
-                alert(1)
-
+                var data = $('#form').serialize();
+                $.post(
+                    '/admin/brand/save',
+                    data,
+                    function(res){
+                        layer.msg(res.font,{icon:res.code,time:1500},function(){
+                            if(res.code == 1){
+                                location.href='/admin/brand/list';
+                            }
+                        });
+                    },
+                    'json'
+                );
                 return false;
             });
         });

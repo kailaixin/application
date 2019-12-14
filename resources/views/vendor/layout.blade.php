@@ -12,8 +12,7 @@
 <div class="layui-layout layui-layout-admin">
     <!-- 头部 -->
     <div class="layui-header">
-        <div class="layui-logo">商城后台</div>
-
+        <div class="layui-logo">国产小青蛙</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <!-- <ul class="layui-nav layui-layout-left"> -->
         <!-- <li class="layui-nav-item"><a href="">控制台</a></li> -->
@@ -133,6 +132,7 @@
             var form = layui.form;
         });
 
+
         // 更换头像
         $('.headimg').click(function(){
             location.href='/admin/headimg';
@@ -142,13 +142,11 @@
         $('.out').click(function(){
             var data = {};
             $.post(
-                '/admin/out',
+                '/out',
                 data,
                 function(res){
                     layer.msg(res.font,{icon:res.code,time:1500},function(){
-                        if(res.code ==1 ){
-                            location.href='/admin/login';
-                        }
+                        location.href='/';
                     });
                 },
                 'json'

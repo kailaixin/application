@@ -19,6 +19,11 @@ Route::prefix('good')->group(function(){
 });
 
 /****************************  后台管理  *******************************************************************************/
+Route::get('/','admin\LoginController@login');                          // 后台登陆视图
+Route::post('login_do','admin\LoginController@login_do');               // 后台登陆处理
+Route::get('register','admin\LoginController@register');                // 后台注册视图
+Route::post('register_do','admin\LoginController@register_do');         // 后台注册处理
+Route::post('out','admin\LoginController@out');                         // 后台退出处理
 Route::get('admin/index','admin\IndexController@index');                // 后台主页
 
 Route::prefix('admin')->group(function(){
@@ -28,21 +33,6 @@ Route::prefix('admin')->group(function(){
     Route::get('headimg','admin\UserController@headimg');               // 更改个人信息头像视图
     Route::post('headimg_do','admin\UserController@headimg_do');        // 更改个人信息头像处理
 });
-
-Route::prefix('admin')->group(function(){
-    Route::get('register','admin\LoginController@register');            // 后台注册视图
-    Route::post('register_do','admin\LoginController@register_do');     // 后台注册处理
-    Route::get('login','admin\LoginController@login');                  // 后台登陆视图
-    Route::post('login_do','admin\LoginController@login_do');           // 后台登陆处理
-    Route::post('out','admin\LoginController@out');                     // 后台退出处理
-});
-
-    Route::get('/','admin\LoginController@login');                      // 后台登陆视图
-    Route::post('login_do','admin\LoginController@login_do');           // 后台登陆处理
-    Route::get('register','admin\LoginController@register');            // 后台注册视图
-    Route::post('register_do','admin\LoginController@register_do');     // 后台注册处理
-    Route::post('out','admin\LoginController@out');                     // 后台退出处理
-
 
 Route::prefix('admin/advent')->group(function(){
     Route::get('create','admin\CategoryController@create');             // 广告添加视图
@@ -63,12 +53,12 @@ Route::prefix('admin/car')->group(function(){
 });
 
 Route::prefix('admin/brand')->group(function(){
-    Route::get('create','admin\BrandController@create');             // 分类添加视图
-    Route::post('save','admin\BrandController@save');                // 分类添加处理
-    Route::get('list','admin\BrandController@list');                 // 分类列表视图
-    Route::post('delete','admin\BrandController@delete');            // 分类删除处理
-    Route::get('edit/{c_id}','admin\BrandController@edit');          // 分类修改视图
-    Route::post('update','admin\BrandController@update');            // 分类修改处理
+    Route::get('create','admin\BrandController@create');                // 分类添加视图
+    Route::post('save','admin\BrandController@save');                   // 分类添加处理
+    Route::get('list','admin\BrandController@list');                    // 分类列表视图
+    Route::post('delete','admin\BrandController@delete');               // 分类删除处理
+    Route::get('edit/{c_id}','admin\BrandController@edit');             // 分类修改视图
+    Route::post('update','admin\BrandController@update');               // 分类修改处理
 });
 
 Route::prefix('admin/cate')->group(function(){
