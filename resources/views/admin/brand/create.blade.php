@@ -3,19 +3,19 @@
 @section('content')
     <form class="layui-form" id="form">
         <div class="layui-form-item layui-col-md5">
-            <label class="layui-form-label">品牌名称</label>
+            <label class="layui-form-label">名&emsp;称</label>
             <div class="layui-input-block">
                 <input type="text" name="b_name" required  lay-verify="required" placeholder="请输入品牌名称" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item layui-col-md5">
-            <label class="layui-form-label">品牌网址</label>
+            <label class="layui-form-label">网&emsp;址</label>
             <div class="layui-input-block">
                 <input type="text" name="b_url" required  lay-verify="required" placeholder="请输入品牌网址" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">是否展示</label>
+            <label class="layui-form-label">展&emsp;示</label>
             <div class="layui-input-block">
                 <input type="radio" name="is_show" value="1" title="是">
                 <input type="radio" name="is_show" value="2" title="否" checked>
@@ -42,7 +42,6 @@
                     '/admin/brand/save',
                     data,
                     function(res){
-<<<<<<< HEAD
                         layer.msg(res.font,{icon:res.code,time:1500},function(){
                             if(res.code == 1){
                                 location.href='/admin/brand/list';
@@ -50,10 +49,6 @@
                         });
                     },
                     'json'
-=======
-                        console.log(res);
-                    }
->>>>>>> 623e8cb15442c82aa2624c46d515c31a34746cf8
                 );
                 return false;
             });
