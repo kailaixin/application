@@ -37,8 +37,14 @@
 
             //监听提交
             $('.formDemo').click(function(){
-                alert(1)
-
+                var data = $('#form').serialize();
+                $.post(
+                    '/admin/brand/save',
+                    data,
+                    function(res){
+                        console.log(res);
+                    }
+                );
                 return false;
             });
         });

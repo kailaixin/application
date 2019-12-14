@@ -4,6 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>@yield('title')</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{asset('/static/layui/css/layui.css')}}">
     <script src="{{asset('/static/layui/layui.js')}}"></script>
     <script src="{{asset('/static/jquery.js')}}"></script>
@@ -69,10 +77,10 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a class="" href="javascript:;">商品管理</a>
+                    <a class="" href="javascript:;">商品分类管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="/admin/category/list">&emsp;&emsp;商品列表</a></dd>
-                        <dd><a href="/admin/category/create">&emsp;&emsp;商品添加</a></dd>
+                        <dd><a href="/admin/cate/list">&emsp;&emsp;商品分类列表</a></dd>
+                        <dd><a href="/admin/cate/create">&emsp;&emsp;商品分类添加</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
