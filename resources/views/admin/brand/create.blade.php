@@ -42,6 +42,7 @@
                     '/admin/brand/save',
                     data,
                     function(res){
+<<<<<<< HEAD
                         layer.msg(res.font,{icon:res.code,time:1500},function(){
                             if(res.code == 1){
                                 location.href='/admin/brand/list';
@@ -49,6 +50,10 @@
                         });
                     },
                     'json'
+=======
+                        console.log(res);
+                    }
+>>>>>>> 623e8cb15442c82aa2624c46d515c31a34746cf8
                 );
                 return false;
             });

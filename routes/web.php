@@ -66,8 +66,8 @@ Route::prefix('admin/cate')->group(function(){
     Route::post('save','admin\CategoryController@save');                // 分类添加处理
     Route::get('list','admin\CategoryController@list');                 // 分类列表视图
     Route::post('delete','admin\CategoryController@delete');            // 分类删除处理
-    Route::get('edit/{c_id}','admin\CategoryController@edit');          // 分类修改视图
-    Route::post('update','admin\CategoryController@update');            // 分类修改处理
+    Route::get('edit','admin\CategoryController@edit');                 // 分类修改视图
+    Route::post('update/{id}','admin\CategoryController@update');            // 分类修改处理
 });
 
 Route::prefix('admin/goods')->group(function(){

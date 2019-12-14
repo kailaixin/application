@@ -55,11 +55,21 @@ class BrandController extends Controller
         if ($req['is_show'] == '') {
             echo json_encode(['font'=>'是否展示不能为空','code'=>2]);die;
         }
+<<<<<<< HEAD
         $res = Brand::insert($req);
         if ($res == true) {
             echo json_encode(['font'=>'添加成功','code'=>1]);
         }else{
             echo json_encode(['font'=>'请求超时','code'=>2]);
         }
+=======
+        dd($req);
+    }
+
+    public function list()
+    {
+
+        return view('admin.brand.list');
+>>>>>>> 623e8cb15442c82aa2624c46d515c31a34746cf8
     }
 }
