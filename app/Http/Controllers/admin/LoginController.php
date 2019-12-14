@@ -27,6 +27,8 @@ class LoginController extends Controller
             'email' => $result[0]['email'],
             'headimg' => $result[0]['headimg']
         ];
+        $time['last_time'] = time();
+        User::where('u_id',$data['u_id'])->update($time);
         $request->session()->put('userinfo',$data);
         $res = $request->session()->get('userinfo');
         if ($res) {
@@ -46,6 +48,7 @@ class LoginController extends Controller
         $arr = $request->all();
         $arr['pwd'] = md5($arr['pwd']);
         $result = User::where('email',$arr['email'])->get()->toArray();
+        $arr['sex'] = 1;
         $arr['create_time'] = time();
         if (!empty($result)) {
             echo json_encode(['font'=>'邮箱已存在','code'=>2]);die;

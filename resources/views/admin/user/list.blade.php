@@ -5,37 +5,39 @@
     <form action="">
     <table class="layui-table">
   <colgroup>
-    <col width="150">
+{{--    <col width="70">--}}
+    <col width="250">
+    <col width="250">
     <col width="200">
-    <col>
+    <col width="100">
+    <col width="100">
+    <col width="200">
+    <col width="150">
+    <col width="150">
   </colgroup>
   <thead>
-    <tr>
-      <th>ID</th>
-      <th>昵称</th>
-      <th>邮箱</th>
-      <th>电话</th>
-      <th>年龄</th>
-      <th>性别</th>
-      <th>头像</th>
-      <th>创建时间</th>
-      <th>登录时间</th>
-      <th>操作</th>
-    </tr> 
+    <tr align="center">
+{{--      <td>ID</td>--}}
+      <td>昵称</td>
+      <td>邮箱</td>
+      <td>电话</td>
+      <td>年龄</td>
+      <td>性别</td>
+      <td>头像</td>
+      <td>创建时间</td>
+      <td>最后登录时间</td>
+    </tr>
     @foreach($data as $v)
-    <tr>
-        <th>{{$v->u_id}}</th>
-        <th>{{$v->nick}}</th>
-        <th>{{$v->email}}</th>
-        <th>{{$v->tel}}</th>
-        <th>{{$v->age}}</th>
-        <th>{{$v->sex}}</th>
-        <th>{{$v->headimg}}</th>
-        <th>{{date('Y-m-d H:i:s',$v->create_time)}}</th>
-        <th>{{$v->last_time}}</th>
-        <th>
-            <a href="{{url('admin/user/edit/'.$v->u_id)}}" class="layui-btn" lay-submit lay-filter="formDemo">&nbsp;&nbsp;编辑&nbsp;</a>
-        </th>
+    <tr align="center">
+{{--        <td>{{$v->u_id}}</td>--}}
+        <td>{{$v->nick}}</td>
+        <td>{{$v->email}}</td>
+        <td>{{$v->tel}}</td>
+        <td>{{$v->age}}</td>
+        <td>@if($v->sex==1) 男 @else 女 @endif</td>
+        <td>{{$v->headimg}}</td>
+        <td>{{date('Y-m-d H:i:s',$v->create_time)}}</td>
+        <td>{{date('Y-m-d H:i:s',$v->last_time)}}</td>
     </tr>
   </thead>
   @endforeach

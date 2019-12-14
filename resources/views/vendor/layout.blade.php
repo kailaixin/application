@@ -58,7 +58,14 @@
                     <a class="" href="javascript:;">用户管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="/admin/user/list">&emsp;&emsp;用户列表</a></dd>
-                       <dd><a href="/admin/user/edit">&emsp;&emsp;用户信息</a></dd>
+                       <dd><a href="/admin/user/edit">&emsp;&emsp;修改信息</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">品牌管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/admin/brand/list">&emsp;&emsp;品牌列表</a></dd>
+                        <dd><a href="/admin/brand/create">&emsp;&emsp;品牌添加</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
@@ -126,27 +133,27 @@
             var form = layui.form;
         });
 
-{{--        // 更换头像--}}
-{{--        $('.headimg').click(function(){--}}
-{{--            location.href='/admin/headimg';--}}
-{{--        });--}}
+        // 更换头像
+        $('.headimg').click(function(){
+            location.href='/admin/headimg';
+        });
 
-{{--        // 退出登录--}}
-{{--        $('.out').click(function(){--}}
-{{--            var data = {};--}}
-{{--            $.post(--}}
-{{--                '/admin/out',--}}
-{{--                data,--}}
-{{--                function(res){--}}
-{{--                    layer.msg(res.font,{icon:res.code,time:1500},function(){--}}
-{{--                        if(res.code ==1 ){--}}
-{{--                            location.href='/admin/login';--}}
-{{--                        }--}}
-{{--                    });--}}
-{{--                },--}}
-{{--                'json'--}}
-{{--            );--}}
-{{--        });--}}
+        // 退出登录
+        $('.out').click(function(){
+            var data = {};
+            $.post(
+                '/admin/out',
+                data,
+                function(res){
+                    layer.msg(res.font,{icon:res.code,time:1500},function(){
+                        if(res.code ==1 ){
+                            location.href='/admin/login';
+                        }
+                    });
+                },
+                'json'
+            );
+        });
     });
 </script>
 </body>

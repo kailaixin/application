@@ -14,16 +14,13 @@ class BrandController extends Controller
 
     public function save()
     {
-        $post=request()->all();
-        $res=brand::create($post);
-        if($res){
-            return redirect('/admin/brand/list');
-        }
+        $req=request()->all();
+        dd($req);
     }
 
     public function list()
     {
-        $data=brand::get();
-        return view('admin.brand.list',['data'=>$data]);
+
+        return view('admin.brand.list');
     }
 }
