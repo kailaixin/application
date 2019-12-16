@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Tools\Tools;
 use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -18,7 +19,6 @@ class CategoryController extends Controller
     {
 
         $obj = new \Tools();
-        var_dump($obj);
         $cateInfo = cate::get()->toArray();
 //        dd($cateInfo);
         $cateInfo = $obj::tree($cateInfo);
@@ -126,11 +126,13 @@ class CategoryController extends Controller
      */
     public function edit(Request $request)
     {
+        $obj = new \Tools();
         $id = $request->id;
 //        dd($id);
         $cateInfo = cate::where('c_id', $id)->first()->toArray();
 //        dd($cateInfo);
         $data = cate::get()->toArray();
+        $data = $obj->tree($data);
 //        dd($data);
         return view('admin/cate/edit', ['cateInfo' => $cateInfo, 'data' => $data]);
     }
@@ -145,41 +147,40 @@ class CategoryController extends Controller
         $id = $request->id;
 //        dd($id);
         $post = $request->except('_token');
+        $c_name = $post['c_name'];
         $post['create_time'] = time();
 //        dd($post);
         //验证
         if (empty($post['c_name'])) {
-            echo "<script>alert('分类名称不能为空')</script>";
+            echo "<script>alert('分类名称不能为空');window.location.href = '/admin/cate/edit?id=$id';</script>";
             die;
         }
-//        $validator = Validator::make($post, [
-//            'c_name' => 'required|unique:admin_cate|max:10',
-//        ],[
-//            'c_name.require' => '分类名称的不能为空',
-//            'c_name.unique' => '分类名称已存在',
-//            'c_name,max' => '分类名称字符不超过10个'
-//        ]);
-//
-//        if ($validator->fails()) {
-//            return redirect('/admin/cate/edit')
-//                ->withErrors($validator)
-//                ->withInput();
-//        }
-//        $errors = $validator->errors();
-//        echo $errors ->first('c_name');
+        //修改的唯一性验证
+//        $first = cate::where('c_id',$id)->get()->toArray();
+//        dd($first);
+//        和数据库的c_name字段对比排除自身 有相同的分类名称不允许修
 //        入库
-        $res = cate::where('c_id', $id)->update($post);
-//        dd($res);
-        if ($res) {
-            echo "<script>alert('修改成功');window.location.href = '/admin/cate/list';</script>";
-            die;
-        } else {
-            echo "<script>alert('修改失败');window.location.href = '/admin/cate list';</script>";
-            die;
-        }
-
+        $res = cate::where('c_name',$c_name)->where('c_id','!=',$id)->get()->toArray();
+            if ($res){
+                echo "<script>alert('该分类名称已存在');window.location.href = '/admin/cate/edit?id=$id';</script>";exit;
+            }else{
+                $re = cate::where('c_id',$id)->update($post);
+                echo "<script>alert('修改成功');window.location.href = '/admin/cate/list';</script>";exit;
+            }
+//
     }
 
+    public function change(Request $request)
+    {
+//        dd(132);
+        //接收值
+        $post = $request->all();
+        $cate_id = $post['cate_id'];
+        $value = $post['value'];
+        $res = cate::where('c_id',$cate_id)->update(['is_show'=>$value]);
+//        dd($res);
+    }
+}
     /**
      * 无限极分类
      * @param array $arr [要排序的数组]
@@ -200,4 +201,4 @@ class CategoryController extends Controller
 //        return $res;
 //    }
 
-}
+

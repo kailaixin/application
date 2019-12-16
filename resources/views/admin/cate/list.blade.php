@@ -25,7 +25,7 @@
            <th>操作</th>
        </tr>
     @foreach($cateInfo as $v)
-        <tr pid="{{$v['p_id']}}"  >
+        <tr pid="{{$v['p_id']}}" cate_id="{{$v['c_id']}}" >
             <td>{{$v['c_id']}}</td>
             <td>
 
@@ -35,7 +35,9 @@
                     <input type="text" id="hide" style="display: none" value="{{str_repeat('⭐',$v['lenvel']*2)}}{{$v['c_name']}}">
                 </span>
             </td>
-            <td> @if($v['is_show'] == 1) 是 @else 否 @endif  </td>
+            <td>
+               <span id="aa"> @if($v['is_show'] == 1) 是 @else 否 @endif </span>
+            </td>
             <td> @if($v['is_nav'] == 1) 是 @else 否 @endif  </td>
             <td>{{date("Y-m-d H:i:s",$v['create_time'])}}</td>
             <td>
@@ -69,5 +71,41 @@
         }
 
       })
+        //即点即改 改变状态
+         $(document).on('click','#aa',function () {
+             // alert(123);
+             var _this = $(this);
+             var cate_id = $(this).parents('tr').attr('cate_id');//获取cate_id
+             var is_show = _this.text();
+             // alert(cate_id);
+             // alert(is_show);
+             var value;
+             if (is_show == '是'){
+                 _this.text('否');
+                 value = 2;
+             }else {
+                 _this.text('是');
+                 value = 1;
+             }
+             // alert(value);
+             // $.post("change",{cate_id:cate_id,value:value},function (res) {
+             //     alert(123);
+             // })
+             $.ajax({
+                 url:'change',
+                 data:{cate_id:cate_id,value:value},
+                 type:'post',
+                 dataType:'json',
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 },
+                 success:function (res) {
+
+                 }
+             })
+         })
+
     </script>
+
+
 @endsection

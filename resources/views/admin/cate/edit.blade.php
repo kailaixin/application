@@ -1,5 +1,4 @@
 @extends('vendor.layout')
-<<<<<<< HEAD
 @section('title','商品分类修改')
 @section('content')
     <form action="{{url('admin/cate/update'.'/'.$cateInfo['c_id'])}}" method="post">
@@ -16,7 +15,7 @@
             <select class="form-control" name="p_id">
                 <option value="0">顶级分类</option>
                 @foreach($data as $v)
-                    <option value="{{$v['c_id']}}" @if($cateInfo['c_id'] == $v['p_id']) selected @endif> {{$v['c_name']}}</option>
+                    <option value="{{$v['c_id']}}" @if($cateInfo['p_id'] == $v['c_id']) selected @endif> {{str_repeat('---',$v['lenvel'])}}{{$v['c_name']}}</option>
                 @endforeach
             </select>
         </div>
@@ -35,9 +34,4 @@
 
         <button type="submit" class="btn btn-default">修改</button>
     </form>
-=======
-@section('title','分类修改')
-@section('content')
-    分类修改
->>>>>>> 73d5b30155b3764777079d55fe17926084ee9ea2
 @endsection
