@@ -34,24 +34,6 @@ Route::prefix('admin')->group(function(){
     Route::post('headimg_do','admin\UserController@headimg_do');        // 更改个人信息头像处理
 });
 
-Route::prefix('admin/advent')->group(function(){
-    Route::get('create','admin\CategoryController@create');             // 广告添加视图
-    Route::post('save','admin\CategoryController@save');                // 广告添加处理
-    Route::get('list','admin\CategoryController@list');                 // 广告列表视图
-    Route::post('delete','admin\CategoryController@delete');            // 广告删除处理
-    Route::get('edit/{c_id}','admin\CategoryController@edit');          // 广告修改视图
-    Route::post('update','admin\CategoryController@update');            // 广告修改处理
-});
-
-Route::prefix('admin/car')->group(function(){
-    Route::get('create','admin\CategoryController@create');             // 购物车添加视图
-    Route::post('save','admin\CategoryController@save');                // 购物车添加处理
-    Route::get('list','admin\CategoryController@list');                 // 购物车列表视图
-    Route::post('delete','admin\CategoryController@delete');            // 购物车删除处理
-    Route::get('edit/{c_id}','admin\CategoryController@edit');          // 购物车修改视图
-    Route::post('update','admin\CategoryController@update');            // 购物车修改处理
-});
-
 Route::prefix('admin/brand')->group(function(){
     Route::get('create','admin\BrandController@create');                // 品牌添加视图
     Route::post('save','admin\BrandController@save');                   // 品牌添加处理
@@ -71,13 +53,13 @@ Route::prefix('admin/cate')->group(function(){
 });
 
 Route::prefix('admin/goods')->group(function(){
-    Route::get('create','admin\NewsController@create');                 // 商品添加视图
-    Route::post('save','admin\NewsController@save');                    // 商品添加处理
-    Route::get('list','admin\NewsController@list');                     // 商品列表视图
-    Route::post('select','admin\NewsController@select');                // 商品列表视图
-    Route::post('delete','admin\NewsController@delete');                // 商品删除处理
-    Route::get('edit/{id}','admin\NewsController@edit');                // 商品修改视图
-    Route::post('update','admin\NewsController@update');                // 商品修改处理
+    Route::get('create','admin\GoodsController@create');                // 商品添加视图
+    Route::post('save','admin\GoodsController@save');                   // 商品添加处理
+    Route::get('list','admin\GoodsController@list');                    // 商品列表视图
+    Route::get('detail/{id}','admin\GoodsController@detail');           // 商品详情视图
+    Route::post('delete','admin\GoodsController@delete');               // 商品删除处理
+    Route::get('edit/{id}','admin\GoodsController@edit');               // 商品修改视图
+    Route::post('update','admin\GoodsController@update');               // 商品修改处理
 });
 
 Route::prefix('admin/order')->group(function(){
@@ -88,6 +70,24 @@ Route::prefix('admin/order')->group(function(){
     Route::post('delete','admin\NewsController@delete');                // 订单删除处理
     Route::get('edit/{id}','admin\NewsController@edit');                // 订单修改视图
     Route::post('update','admin\NewsController@update');                // 订单修改处理
+});
+
+Route::prefix('admin/advent')->group(function(){
+    Route::get('create','admin\CategoryController@create');             // 广告添加视图
+    Route::post('save','admin\CategoryController@save');                // 广告添加处理
+    Route::get('list','admin\CategoryController@list');                 // 广告列表视图
+    Route::post('delete','admin\CategoryController@delete');            // 广告删除处理
+    Route::get('edit/{c_id}','admin\CategoryController@edit');          // 广告修改视图
+    Route::post('update','admin\CategoryController@update');            // 广告修改处理
+});
+
+Route::prefix('admin/car')->group(function(){
+    Route::get('create','admin\CategoryController@create');             // 购物车添加视图
+    Route::post('save','admin\CategoryController@save');                // 购物车添加处理
+    Route::get('list','admin\CategoryController@list');                 // 购物车列表视图
+    Route::post('delete','admin\CategoryController@delete');            // 购物车删除处理
+    Route::get('edit/{c_id}','admin\CategoryController@edit');          // 购物车修改视图
+    Route::post('update','admin\CategoryController@update');            // 购物车修改处理
 });
 
 /***************************************    RBAC    ***********************************************/
