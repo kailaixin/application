@@ -53,12 +53,12 @@ Route::prefix('admin/car')->group(function(){
 });
 
 Route::prefix('admin/brand')->group(function(){
-    Route::get('create','admin\BrandController@create');                // 分类添加视图
-    Route::post('save','admin\BrandController@save');                   // 分类添加处理
-    Route::get('list','admin\BrandController@list');                    // 分类列表视图
-    Route::post('delete','admin\BrandController@delete');               // 分类删除处理
-    Route::get('edit/{c_id}','admin\BrandController@edit');             // 分类修改视图
-    Route::post('update','admin\BrandController@update');               // 分类修改处理
+    Route::get('create','admin\BrandController@create');                // 品牌添加视图
+    Route::post('save','admin\BrandController@save');                   // 品牌添加处理
+    Route::get('list','admin\BrandController@list');                    // 品牌列表视图
+    Route::post('delete','admin\BrandController@delete');               // 品牌删除处理
+    Route::get('edit/{b_id}','admin\BrandController@edit');             // 品牌修改视图
+    Route::post('update','admin\BrandController@update');               // 品牌修改处理
 });
 
 Route::prefix('admin/cate')->group(function(){
@@ -67,7 +67,7 @@ Route::prefix('admin/cate')->group(function(){
     Route::get('list','admin\CategoryController@list');                 // 分类列表视图
     Route::post('delete','admin\CategoryController@delete');            // 分类删除处理
     Route::get('edit','admin\CategoryController@edit');                 // 分类修改视图
-    Route::post('update/{id}','admin\CategoryController@update');            // 分类修改处理
+    Route::post('update/{id}','admin\CategoryController@update');       // 分类修改处理
 });
 
 Route::prefix('admin/goods')->group(function(){

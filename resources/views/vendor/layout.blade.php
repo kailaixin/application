@@ -69,6 +69,13 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item">
+                    <a class="" href="javascript:;">商品管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/admin/goods/list">&emsp;&emsp;商品列表</a></dd>
+                        <dd><a href="/admin/goods/create">&emsp;&emsp;商品添加</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
                     <a class="" href="javascript:;">广告管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="/admin/news/list">&emsp;&emsp;广告列表</a></dd>
