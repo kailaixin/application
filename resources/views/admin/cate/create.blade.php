@@ -41,15 +41,15 @@
              event.preventDefault();
             var c_name = $('[name="c_name"]').val();
             // alert(c_name);
-             var msg = /([u4e00-u9fa5\dA-Za-z]){2,10}/;
+            //  var msg = /([u4e00-u9fa5\dA-Za-z]){2,10}/;
              if (c_name==''){
                  $('#xing').html('分类名称不能为空').css('color','red');
                  return false;
              }
-             if (!msg.test(c_name)){
-                 $('#xing').html('分类名称必须以中文数字和下划线组成的2到7位字符').css('color','red');
-                 return false;
-             }
+             // if (!msg.test(c_name)){
+             //     $('#xing').html('分类名称必须以中文数字和下划线组成的2到7位字符').css('color','red');
+             //     return false;
+             // }
          })
      })
     </script>

@@ -104,7 +104,7 @@ class UserController extends Controller
     {
         $dir = '/upload/headimg/';
         if (!is_dir($dir)){
-            mkdir($dir,0,777);
+            mkdir($dir,true,777);
         }
         //获取字段名
         $fileCharater = $request->file('headimg');

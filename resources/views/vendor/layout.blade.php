@@ -62,10 +62,10 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a class="" href="javascript:;">商品分类管理</a>
+                    <a class="" href="javascript:;">分类管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="/admin/cate/list">&emsp;&emsp;商品分类列表</a></dd>
-                        <dd><a href="/admin/cate/create">&emsp;&emsp;商品分类添加</a></dd>
+                        <dd><a href="/admin/cate/list">&emsp;&emsp;分类列表</a></dd>
+                        <dd><a href="/admin/cate/create">&emsp;&emsp;分类添加</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
