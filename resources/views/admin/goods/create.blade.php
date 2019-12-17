@@ -1,19 +1,6 @@
 @extends('vendor.layout')
 @section('title','商品添加')
 @section('content')
-<<<<<<< HEAD
-<form class="layui-form" id="form" action="{{url('admin/rbac/gra_save')}}" method="post">
-        <div class="layui-form-item layui-col-md5">
-            <label class="layui-form-label">商品名称</label>
-            <div class="layui-input-block">
-                <input type="text" name="g_name" required  lay-verify="required" placeholder="请输入内容" autocomplete="off" class="layui-input">
-            </div>
-        </div>
-        <div class="layui-form-item layui-form-text layui-col-md7"> ,./
-            <label class="layui-form-label"></label>
-            <div class="layui-input-block">
-                <textarea name="centent" placeholder="请输入内容" class="layui-textarea"></textarea>
-=======
     <form class="layui-form" action="/admin/goods/save" method="post" enctype="multipart/form-data">
         <div class="layui-form-item layui-col-md5">
             <label class="layui-form-label">名&emsp;称</label>
@@ -113,22 +100,15 @@
             <label class="layui-form-label">文本域</label>
             <div class="layui-input-block">
                 <textarea name="g_desc" placeholder="请输入内容" class="layui-textarea"></textarea>
->>>>>>> b6dd46dab41875ca086dfefe5bb78d1f58987eba
             </div>
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-<<<<<<< HEAD
                 <button class="layui-btn formDemo" lay-submit lay-filter="formDemo">立即提交</button>
-=======
-                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
->>>>>>> b6dd46dab41875ca086dfefe5bb78d1f58987eba
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
     </form>
-<<<<<<< HEAD
-=======
 
     <script>
         $(function(){
@@ -137,5 +117,4 @@
             });
         });
     </script>
->>>>>>> b6dd46dab41875ca086dfefe5bb78d1f58987eba
 @endsection

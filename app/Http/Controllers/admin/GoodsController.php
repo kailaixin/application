@@ -291,8 +291,4 @@ class GoodsController extends Controller
             echo json_encode(['font'=>'请求超时','code'=>2]);
         }
     }
-    public function create()
-    {
-        return view('admin/goods/create');
-    }
 }
