@@ -143,7 +143,7 @@
         $('.out').click(function(){
             var data = {};
             $.post(
-                '/out',
+                '/admin/out',
                 data,
                 function(res){
                     layer.msg(res.font,{icon:res.code,time:1500},function(){
