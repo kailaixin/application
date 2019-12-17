@@ -67,12 +67,13 @@
         $('.button').click(function(){
             var data = $('#form').serialize();
             $.post(
-                'register_do',
+                '/register_do',
                 data,
                 function(res){
                     layer.msg(res.font,{icon:res.code,time:1500},function(){
-                        location.href='login';
-                        location.href='/';
+                        if (res.code == 1) {
+                            location.href='/';
+                        }
                     });
                 },
                 'json'
