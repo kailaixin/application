@@ -24,4 +24,8 @@ class GoodsController extends Controller
         $data = Good::get()->toArray();
         echo json_encode($data);
     }
+    public function create()
+    {
+        return view('admin/goods/create');
+    }
 }

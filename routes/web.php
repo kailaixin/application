@@ -44,12 +44,12 @@ Route::prefix('admin')->group(function(){
 
 
 Route::prefix('admin/advent')->group(function(){
-    Route::get('create','admin\CategoryController@create');             // 广告添加视图
-    Route::post('save','admin\CategoryController@save');                // 广告添加处理
-    Route::get('list','admin\CategoryController@list');                 // 广告列表视图
-    Route::post('delete','admin\CategoryController@delete');            // 广告删除处理
-    Route::get('edit/{c_id}','admin\CategoryController@edit');          // 广告修改视图
-    Route::post('update','admin\CategoryController@update');            // 广告修改处理
+    Route::get('create','admin\AdventController@create');             // 广告添加视图
+    Route::post('save','admin\AdventController@save');                // 广告添加处理
+    Route::get('list','admin\AdventController@list');                 // 广告列表视图
+    Route::get('delete/{f_id}','admin\AdventController@delete');             // 广告删除处理
+    Route::get('edit/{c_id}','admin\AdventController@edit');          // 广告修改视图
+    Route::post('update','admin\AdventController@update');            // 广告修改处理
 });
 
 Route::prefix('admin/car')->group(function(){
@@ -71,12 +71,12 @@ Route::prefix('admin/cate')->group(function(){
 });
 
 Route::prefix('admin/goods')->group(function(){
-    Route::get('create','admin\NewsController@create');                 // 商品添加视图
+    Route::get('create','admin\goodsController@create');                 // 商品添加视图
     Route::post('save','admin\NewsController@save');                    // 商品添加处理
     Route::get('list','admin\NewsController@list');                     // 商品列表视图
     Route::post('select','admin\NewsController@select');                // 商品列表视图
     Route::post('delete','admin\NewsController@delete');                // 商品删除处理
-    Route::get('edit/{id}','admin\NewsController@edit');                // 商品修改视图
+    Route::get('edit/{id}','admin\NewsController@edit');                // 商品修改视图 
     Route::post('update','admin\NewsController@update');                // 商品修改处理
 });
 
