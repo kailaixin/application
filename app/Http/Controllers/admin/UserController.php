@@ -84,6 +84,10 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * 用户头像修改视图
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function headimg()
     {
         $session = request()->session()->get('userinfo');
@@ -92,9 +96,12 @@ class UserController extends Controller
         return view('admin.user.headimg',['headimg'=>$headimg]);
     }
 
+    /**
+     * 用户头像修改处理
+     * @param Request $request
+     */
     public function headimg_do(Request $request)
     {
-//        $file = $_FILES['headimg'];
         $dir = '/upload/headimg/';
         if (!is_dir($dir)){
             mkdir($dir,0,777);
