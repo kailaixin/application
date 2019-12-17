@@ -55,6 +55,27 @@ return [
             'visibility' => 'public',
         ],
 
+        'headimg' => [
+            'driver' => 'local',
+            'root' => public_path('/upload/headimg'),
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+        ],
+
+        'goods_img' => [
+            'driver' => 'local',
+            'root' => public_path('/upload/goods_img'),
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+        ],
+
+        'goods_imgs' => [
+            'driver' => 'local',
+            'root' => public_path('/upload/goods_imgs'),
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
