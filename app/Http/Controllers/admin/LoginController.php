@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\admin\User;
+use App\admin\Groupur;
 
 class LoginController extends Controller
 {
@@ -42,7 +43,7 @@ class LoginController extends Controller
         if ($res) {
             echo json_encode(['font'=>'登陆成功','code'=>1]);
         }else{
-            echo json_encode(['font'=>'请求超时，稍后再试','code'=>2]);
+            echo json_encode(['font'=>'请求超时','code'=>2]);
         }
     }
 
@@ -69,11 +70,16 @@ class LoginController extends Controller
         if (!empty($result)) {
             echo json_encode(['font'=>'邮箱已存在','code'=>2]);die;
         }
-        $res = User::insertGetId($arr);
-        if ($res == true) {
+        $res1 = User::insertGetId($arr);
+        $array = [
+            'u_id' => $res1,
+            'r_id' => 1,
+        ];
+        $res2 = Groupur::insertGetId($array);
+        if (($res1 == true) && ($res2 == true)) {
             echo json_encode(['font'=>'注册成功','code'=>1]);
         }else{
-            echo json_encode(['font'=>'请求超时，稍后再试','code'=>2]);
+            echo json_encode(['font'=>'未知错误，请换个邮箱尝试','code'=>2]);
         }
     }
 
