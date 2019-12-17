@@ -33,7 +33,6 @@ class CategoryController extends Controller
     {
         //接收
         $post = $request->all();
-//        dd($post);
         $cate_name = $post['c_name'];
         $p_id = $post['p_id'];
         $is_show = $post['is_show'];
