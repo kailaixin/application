@@ -20,22 +20,7 @@
 <div class="layui-layout layui-layout-admin">
     <!-- 头部 -->
     <div class="layui-header">
-        <div class="layui-logo">商城后台</div>
-
-        <!-- 头部区域（可配合layui已有的水平导航） -->
-        <!-- <ul class="layui-nav layui-layout-left"> -->
-        <!-- <li class="layui-nav-item"><a href="">控制台</a></li> -->
-        <!-- <li class="layui-nav-item"><a href="">商品管理</a></li> -->
-        <!-- <li class="layui-nav-item"><a href="">用户</a></li> -->
-        <!-- <li class="layui-nav-item"> -->
-        <!-- <a href="javascript:;">其它系统</a> -->
-        <!-- <dl class="layui-nav-child"> -->
-        <!-- <dd><a href="">邮件管理</a></dd> -->
-        <!-- <dd><a href="">消息管理</a></dd> -->
-        <!-- <dd><a href="">授权管理</a></dd> -->
-        <!-- </dl> -->
-        <!-- </li> -->
-        <!-- </ul> -->
+        <div class="layui-logo">国产小青蛙</div>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a>
@@ -81,6 +66,13 @@
                     <dl class="layui-nav-child">
                         <dd><a href="/admin/cate/list">&emsp;&emsp;商品分类列表</a></dd>
                         <dd><a href="/admin/cate/create">&emsp;&emsp;商品分类添加</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">商品管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/admin/goods/list">&emsp;&emsp;商品列表</a></dd>
+                        <dd><a href="/admin/goods/create">&emsp;&emsp;商品添加</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
@@ -141,6 +133,7 @@
             var form = layui.form;
         });
 
+
         // 更换头像
         $('.headimg').click(function(){
             location.href='/admin/headimg';
@@ -150,13 +143,11 @@
         $('.out').click(function(){
             var data = {};
             $.post(
-                '/admin/out',
+                '/out',
                 data,
                 function(res){
                     layer.msg(res.font,{icon:res.code,time:1500},function(){
-                        if(res.code ==1 ){
-                            location.href='/admin/login';
-                        }
+                        location.href='/';
                     });
                 },
                 'json'
