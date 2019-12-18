@@ -39,10 +39,11 @@ class CategoryController extends Controller
         $is_nav = $post['is_nav'];
 //        验证
         $validator = Validator::make($post, [
-            'c_name' => 'required|unique:cate|max:10',
+//            'c_name' => 'required|unique:cate|max:10',
+            'c_name' => 'required|max:10',
         ], [
             'c_name.required' => '分类名称的不能为空',
-            'c_name.unique' => '分类名称已存在',
+//            'c_name.unique' => '分类名称已存在',
             'c_name,max' => '分类名称字符不超过10个',
         ]);
 
@@ -62,7 +63,7 @@ class CategoryController extends Controller
             'create_time' => time(),
         ]);
         if ($res) {
-            echo "<script>alert('添加成功');window.location.href = 'list';</script>";
+            echo "<script>alert('添加成功');window.location.href = 'create';</script>";
             die;
         } else {
             echo "<script>alert('添加失败');window.location.href = 'create';</script>";

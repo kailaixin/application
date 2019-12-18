@@ -17,22 +17,21 @@
     </form>
     <table class="table table-hover">
        <tr id="quan">
-           <th>编号</th>
-           <th>分类名称</th>
-           <th>是否显示</th>
-           <th>是否在导航栏上显示</th>
-           <th>添加时间</th>
-           <th>操作</th>
+           <td>编号</td>
+           <td width="400px">分类名称</td>
+           <td>是否显示</td>
+           <td>是否在导航栏上显示</td>
+           <td>添加时间</td>
+           <td>操作</td>
        </tr>
     @foreach($cateInfo as $v)
-        <tr pid="{{$v['p_id']}}" cate_id="{{$v['c_id']}}" >
+        <tr pid="{{$v['p_id']}}" cate_id="{{$v['c_id']}}">
             <td>{{$v['c_id']}}</td>
             <td>
-
                 <span cat_id="{{$v['c_id']}}">
-                    <span id="kai">♥</span>
-                    <span id="show">{{str_repeat('⭐',$v['lenvel']*2)}}{{$v['c_name']}} </span>
-                    <input type="text" id="hide" style="display: none" value="{{str_repeat('⭐',$v['lenvel']*2)}}{{$v['c_name']}}">
+                    <span id="kai"><a href="javascript:;">＞</a></span>
+                    <span id="show">{{str_repeat('···',$v['lenvel']*2)}}{{$v['c_name']}} </span>
+                    <input type="text" id="hide" style="display: none" value="{{str_repeat('···',$v['lenvel']*2)}}{{$v['c_name']}}">
                 </span>
             </td>
             <td>
@@ -61,13 +60,12 @@
           var cat_id = _this.parent().attr('cat_id');
           var kai = _this.text();
 
-        // console.log(kai);return false;
-        if (kai == '♥'){
+        if (kai == '＞'){
             $("tr[pid="+cat_id+"]").show();
-            _this.text('♥♥');
+            _this.text('∧');
           }else{
             $("tr[pid="+cat_id+"]").hide();
-            _this.text('♥');
+            _this.text('＞');
         }
 
       })
@@ -77,8 +75,6 @@
              var _this = $(this);
              var cate_id = $(this).parents('tr').attr('cate_id');//获取cate_id
              var is_show = _this.text();
-             // alert(cate_id);
-             // alert(is_show);
              var value;
              if (is_show == '是'){
                  _this.text('否');
@@ -87,10 +83,7 @@
                  _this.text('是');
                  value = 1;
              }
-             // alert(value);
-             // $.post("change",{cate_id:cate_id,value:value},function (res) {
-             //     alert(123);
-             // })
+
              $.ajax({
                  url:'change',
                  data:{cate_id:cate_id,value:value},
