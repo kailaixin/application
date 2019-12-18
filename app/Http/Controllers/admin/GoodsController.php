@@ -95,10 +95,10 @@ class GoodsController extends Controller
             echo "<script>alert('轮播图不能少于三张');history.back();</script>";die;
         }
 
-        $dir = '/upload/goods_img/';
-        if (!is_dir($dir)){
-            mkdir($dir,0,777);
-        }
+//        $dir = '/upload/goods_img/';
+//        if (!is_dir($dir)){
+//            mkdir($dir,0,777);
+//        }
         if(is_object($data['g_img'])) {
             //获取字段名
             $fileCharater = $request->file('g_img');
@@ -115,10 +115,10 @@ class GoodsController extends Controller
             $data['g_img'] = $g_img;
         }
 
-        $dir = '/upload/goods_imgs/';
-        if (!is_dir($dir)){
-            mkdir($dir,0,777);
-        }
+//        $dir = '/upload/goods_imgs/';
+//        if (!is_dir($dir)){
+//            mkdir($dir,0,777);
+//        }
         if(is_object($data['g_imgs1'])) {       // 轮播图一
             $fileCharater = $request->file('g_imgs1');
             $ext = $fileCharater->getClientOriginalExtension();
@@ -195,10 +195,10 @@ class GoodsController extends Controller
         }
 
         if (isset($data['g_img'])) {
-            $dir = '/upload/goods_img/';
-            if (!is_dir($dir)){
-                mkdir($dir,0,777);
-            }
+//            $dir = '/upload/goods_img/';
+//            if (!is_dir($dir)){
+//                mkdir($dir,0,777);
+//            }
             if(is_object($data['g_img'])) {     // 商品大图
                 //获取字段名
                 $fileCharater = $request->file('g_img');
@@ -217,10 +217,10 @@ class GoodsController extends Controller
         }
 
         if (isset($data['g_imgs1'])) {
-            $dir = '/upload/goods_imgs/';
-            if (!is_dir($dir)){
-                mkdir($dir,0,777);
-            }
+//            $dir = '/upload/goods_imgs/';
+//            if (!is_dir($dir)){
+//                mkdir($dir,0,777);
+//            }
             if(is_object($data['g_imgs1'])) {       // 轮播图一
                 $fileCharater = $request->file('g_imgs1');
                 $ext = $fileCharater->getClientOriginalExtension();
@@ -234,10 +234,10 @@ class GoodsController extends Controller
                 unset($data['g_imgs1']);
             }
         }elseif (isset($data['g_imgs2'])) {
-            $dir = '/upload/goods_imgs/';
-            if (!is_dir($dir)){
-                mkdir($dir,0,777);
-            }
+//            $dir = '/upload/goods_imgs/';
+//            if (!is_dir($dir)){
+//                mkdir($dir,0,777);
+//            }
             if(is_object($data['g_imgs2'])) {       // 轮播图二
                 $fileCharater = $request->file('g_imgs2');
                 $ext = $fileCharater->getClientOriginalExtension();
@@ -251,10 +251,10 @@ class GoodsController extends Controller
                 unset($data['g_imgs2']);
             }
         }elseif (isset($data['g_imgs3'])) {
-            $dir = '/upload/goods_imgs/';
-            if (!is_dir($dir)){
-                mkdir($dir,0,777);
-            }
+//            $dir = '/upload/goods_imgs/';
+//            if (!is_dir($dir)){
+//                mkdir($dir,0,777);
+//            }
             if(is_object($data['g_imgs3'])) {       // 轮播图三
                 $fileCharater = $request->file('g_imgs3');
                 $ext = $fileCharater->getClientOriginalExtension();
@@ -273,10 +273,7 @@ class GoodsController extends Controller
         if ($res == true) {
             echo "<script>alert('添加成功');location='/admin/goods/list';</script>";
         }else{
-            //echo "<script>alert('请求超时');location='/admin/goods/edit/'+{{$data['g_id']}};</script>";
-            echo "<script>alert('aaaaaaa');</script>";
-            $url="/admin/goods/edit/".$data['g_id'];
-            header("location:$url");
+            echo "<script>alert('未知错误，请尽快联系管理人员');history.back();</script>";
         }
     }
 
