@@ -103,9 +103,9 @@ class UserController extends Controller
     public function headimg_do(Request $request)
     {
         $dir = '/upload/headimg/';
-        if (!is_dir($dir)){
-            mkdir($dir,true,777);
-        }
+//        if (!is_dir($dir)){
+//            mkdir($dir,true,777);
+//        }
         //获取字段名
         $fileCharater = $request->file('headimg');
         //获取文件的扩展名
@@ -115,7 +115,8 @@ class UserController extends Controller
         //定义文件名
         $filename = uniqid().time().".".$ext;
         //存入数据库的路径
-        $headimg = "/upload/headimg/".$filename;
+//        $headimg = "/upload/headimg/".$filename;
+        $headimg = $filename;
         //存储文件。disk里面的public。总的来说，就是调用disk模块里的public配置
         $bool = Storage::disk('headimg')->put($filename, file_get_contents($path));
         $session = request()->session()->get('userinfo');
