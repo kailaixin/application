@@ -58,8 +58,7 @@ return [
 
         'headimg' => [
             'driver' => 'local',
-//            'root' => public_path('/upload/headimg'),
-            'root' => public_path('/'),
+            'root' => public_path('/upload/headimg'),
             'url' => env('APP_URL').'/public',
             'visibility' => 'public',
         ],
