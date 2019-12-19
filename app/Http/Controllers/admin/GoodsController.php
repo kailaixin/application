@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\admin\Goods;
 use App\admin\Brand;
 use App\admin\Cate;
+use App\admin\Specs;
+use App\admin\Key;
 
 class GoodsController extends Controller
 {
@@ -38,8 +40,9 @@ class GoodsController extends Controller
     public function detail($id)
     {
         $goods = Goods::where('g_id',$id)->get()->toArray();
-        $brand = Brand::where('is_show',1)->get()->toArray();
-        $cate = Cate::where('is_show',1)->get()->toArray();
+        $goods[0]['g_imgs'] = json_decode($goods[0]['g_imgs'],1);
+        $brand = Brand::get()->toArray();
+        $cate = Cate::get()->toArray();
         foreach ($goods as $k => $v) {
             foreach ($brand as $key => $value) {
                 if ($v['b_id'] == $value['b_id']) {
@@ -54,8 +57,14 @@ class GoodsController extends Controller
                 }
             }
         }
-        $goods[0]['g_imgs'] = json_decode($goods[0]['g_imgs'],1);
-        return view('admin.goods.detail',['data'=>$goods]);
+        $specs = Specs::where('g_id',$id)->get()->toArray();
+        $key = Key::where('c_id',$specs[0]['c_id'])->get()->toArray();
+        $key_name = [
+            'k_name1' => $key[0]['key_name'],
+            'k_name2' => $key[1]['key_name'],
+            'k_name3' => $key[2]['key_name'],
+        ];
+        return view('admin.goods.detail',['data'=>$goods,'specs'=>$specs,'key_name'=>$key_name]);
     }
 
     /** 商品添加视图 */
@@ -151,7 +160,7 @@ class GoodsController extends Controller
 
         $res = Goods::insertGetId($data);
         if ($res == true) {
-            echo "<script>alert('添加成功');location='/admin/goods/list';</script>";
+            echo "<script>alert('添加成功，前往添加属性');location='/admin/value/create/'+$res;</script>";
         }else{
             echo "<script>alert('请求超时');location='/admin/goods/create';</script>";
         }
@@ -178,12 +187,12 @@ class GoodsController extends Controller
         if (empty($data['g_name'])) {
             echo "<script>alert('名称不能为空');history.back();</script>";
         }
-        if (empty($data['g_price'])) {
-            echo "<script>alert('价格不能为空');history.back();</script>";
-        }
-        if (empty($data['g_stock'])) {
-            echo "<script>alert('库存不能为空');history.back();</script>";
-        }
+//        if (empty($data['g_price'])) {
+//            echo "<script>alert('价格不能为空');history.back();</script>";
+//        }
+//        if (empty($data['g_stock'])) {
+//            echo "<script>alert('库存不能为空');history.back();</script>";
+//        }
         if (empty($data['b_id'])) {
             echo "<script>alert('品牌不能为空');history.back();</script>";
         }

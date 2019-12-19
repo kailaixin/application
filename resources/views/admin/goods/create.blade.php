@@ -11,7 +11,7 @@
         <div class="layui-form-item layui-col-md5">
             <label class="layui-form-label">价&emsp;格</label>
             <div class="layui-input-block">
-                <input type="text" name="g_price" required  lay-verify="required" placeholder="请输入价格" autocomplete="off" class="layui-input">
+                <input type="text" name="g_price" required  lay-verify="required" placeholder="请输入：最低价格-最高价格('-'为英文符号)" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item layui-col-md5">
@@ -104,7 +104,7 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn formDemo" lay-submit lay-filter="formDemo">立即提交</button>
+                <button class="layui-btn formDemo" lay-submit lay-filter="formDemo">提交并添加属性</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>

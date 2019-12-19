@@ -4,7 +4,7 @@
     <table class="layui-table">
         <colgroup>
             <col width="120">
-            <col width="300">
+            <col width="250">
             <col width="200">
             <col width="200">
             <col width="200">

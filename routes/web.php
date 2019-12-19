@@ -58,6 +58,15 @@ Route::prefix('admin/goods')->middleware('checklogin')->group(function(){
     Route::post('update','admin\GoodsController@update');               // 商品修改处理
 });
 
+Route::prefix('admin/value')->middleware('checklogin')->group(function(){
+    Route::get('create/{id}','admin\AttributeController@create');       // 规格添加视图
+    Route::post('select','admin\AttributeController@select');           // 规格添加视图
+    Route::post('save','admin\AttributeController@save');               // 规格添加处理
+    Route::post('delete','admin\AttributeController@delete');           // 规格删除处理
+    Route::get('edit/{gs_id}/{g_id}','admin\AttributeController@edit');      // 规格修改视图
+    Route::post('update','admin\AttributeController@update');           // 规格修改处理
+});
+
 Route::prefix('admin/order')->middleware('checklogin')->group(function(){
     Route::get('create','admin\NewsController@create');                 // 订单添加视图
     Route::post('save','admin\NewsController@save');                    // 订单添加处理

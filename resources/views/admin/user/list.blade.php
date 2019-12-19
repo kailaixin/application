@@ -35,7 +35,7 @@
         <td>{{$v->tel}}</td>
         <td>{{$v->age}}</td>
         <td>@if($v->sex==1) 男 @else 女 @endif</td>
-        <td>{{$v->headimg}}</td>
+        <td><img src="{{$v->headimg}}" alt=""></td>
         <td>{{date('Y-m-d H:i:s',$v->create_time)}}</td>
         <td>{{date('Y-m-d H:i:s',$v->last_time)}}</td>
     </tr>

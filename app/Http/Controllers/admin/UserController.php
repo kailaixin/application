@@ -102,10 +102,6 @@ class UserController extends Controller
      */
     public function headimg_do(Request $request)
     {
-//        $dir = '/storage/headimg/';
-//        if (!is_dir($dir)){
-//            mkdir($dir,true,777);
-//        }
         //获取字段名
         $fileCharater = $request->file('headimg');
         //获取文件的扩展名
