@@ -28,7 +28,7 @@ class LoginController extends Controller
         $arr['pwd'] = md5($arr['pwd']);
         $result = User::where(['email'=>$arr['email'],'pwd'=>$arr['pwd']])->get()->toArray();
         if (empty($result)) {
-            echo json_encode(['font'=>'用户名或密码有误','code'=>2]);die;
+            echo json_encode(['font'=>'用户名或密码有误','code'=>3]);die;
         }
         $data = [
             'u_id' => $result[0]['u_id'],
@@ -63,6 +63,17 @@ class LoginController extends Controller
     public function register_do(Request $request)
     {
         $arr = $request->all();
+        $email = "/^[^_][\w]*@[\w.]+[\w]*[^_]$/";
+        if(!preg_match($email,$arr['email'])){
+            echo json_encode(['font'=>'邮箱格式有误','code'=>2]);die;
+        }
+        if (strlen($arr['email']) >25) {
+            echo json_encode(['font'=>'邮箱过长','code'=>2]);die;
+        }
+        $password = '/^\w{8,16}$/';
+        if (!preg_match($password,$arr['pwd'])) {
+            echo json_encode(['font'=>'密码格式有误','code'=>4]);die;
+        }
         $arr['pwd'] = md5($arr['pwd']);
         $result = User::where('email',$arr['email'])->get()->toArray();
         $arr['sex'] = 1;

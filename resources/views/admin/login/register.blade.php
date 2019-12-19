@@ -30,10 +30,10 @@
         <form id="form">
             <!-- 输入框 -->
             <div class="lgD">
-                <img class="img1" src="/img/logName.png" /><input type="text" name="email" placeholder="请输入邮箱" />
+                <img class="img1" src="/img/logName.png" /><input type="text" name="email" placeholder="不多于25位的邮箱格式" />
             </div>
             <div class="lgD">
-                <img class="img1" src="/img/logPwd.png" /><input type="password" name="pwd" placeholder="请输入密码" />
+                <img class="img1" src="/img/logPwd.png" /><input type="password" name="pwd" placeholder="任意数字、字母、下划线8——16位组合" />
             </div>
             <!-- <div class="lgD logD2">
                 <input class="getYZM" type="text" />
