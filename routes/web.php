@@ -135,8 +135,9 @@ Route::prefix('admin/rbac')->middleware('checklogin')->group(function(){
 /**************************************************************************************************/
 
 /****************api接口部分******************************************************************************************************/
-Route::prefix('api/')->group(function (){
-    Route::get('cate','api\ApiController@cate');                     //api接口
+Route::prefix('api/')->middleware('heard')->group(function (){
+    Route::get('cate','api\ApiController@cate');                     //全部分类信息
+    Route::get('cate_hot','api\ApiController@cate_hot');                     //全部分类信息
 });
 /****************前台页面******************************************************************************************************/
 

@@ -72,6 +72,9 @@ class GoodsController extends Controller
     {
         $brand = Brand::where('is_show',1)->get()->toArray();
         $cate = Cate::where('is_show',1)->get()->toArray();
+        $obj = new \Tools();
+        $cate = $obj::tree($cate);
+//        dd($cate);
         return view('admin.goods.create',['brand'=>$brand,'cate'=>$cate]);
     }
 
